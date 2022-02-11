@@ -7,11 +7,11 @@ function App() {
     <div className="App">
       <div className="">
       <h1>Budgets</h1>
-      <button className='btn-primary'>Add Budget</button>
-      <button className='btn-outlinePrimary'>Add Expense</button>
+      <button className='btn-primary'><span> Add Budget</span></button>
+      <button className='btn-primary outlinePrimary'><span> Add Expense</span></button>
       <h3>On contruction</h3>
       </div>
-      <BudgetCard></BudgetCard>
+      <BudgetCard name="Entertainment" amount={200} max={1000} ></BudgetCard>
     </div>
   );
 }
