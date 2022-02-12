@@ -1,0 +1,158 @@
+.card {
+    width: 100%;
+    height: 240px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+    z-index: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 1rem;
+}
+
+.primary {
+    background-color: rgba(255, 255, 255, 0.24);
+}
+
+.warning {
+    background-color: #fec10969;
+    border: solid 3px #FEC009;
+}
+
+.danger {
+    background-color: rgba(255, 0, 0, 0.105);
+    border: solid 3px red;
+}
+
+.card-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-boddy {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.titulo-amount {
+    font-size: larger;
+    font-weight: 600;
+}
+
+.bar {
+    width: 90%;
+    position: relative;
+    border: 3px solid #1e50f4;
+    border-radius: 20px;
+}
+
+.bar div {
+    position: relative;
+    width: 0;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #1e50f4;
+    margin: 2px;
+}
+
+.card-progresBar {
+    height: 16px;
+    border-radius: 8px;
+    margin: 0 auto;
+    background-color: #1e50f4;
+    border: solid 1px black;
+}
+
+#progresBar {
+    animation: progresBar 2s forwards;
+    --progresBar: 20%;
+    border: none;
+}
+
+@keyframes progresBar {
+    100% {
+        width: var(--progresBar);
+    }
+}
+
+.card-footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+/* BOTONES */
+
+.btn-primary {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #1e50f4;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+    width: 160px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    vertical-align: middle;
+}
+
+.btn-primary span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.btn-primary span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: -10px;
+    right: -20px;
+    transition: 0.5s;
+    font-size: 30px;
+}
+
+.btn-primary:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(6px);
+}
+
+.btn-primary:hover span {
+    padding-right: 25px;
+}
+
+.btn-primary:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.outlinePrimary {
+    background-color: #ffffff00;
+    border: solid 2px #1e50f4;
+    color: #1e50f4;
+}
+
+.outlinePrimary:hover {
+    background-color: #ffffff;
+    border: solid 2px #1e50f4;
+    color: #1e50f4;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
