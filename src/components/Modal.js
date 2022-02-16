@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/modal.css'
+import '../style/BudgetModal.css'
 
 const Modal = props => {
     return (
@@ -23,6 +23,6 @@ const Modal = props => {
         </div>
     </div>
     );
-  };
+};
 
 export default Modal

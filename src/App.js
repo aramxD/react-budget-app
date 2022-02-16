@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BudgetCard from './components/BudgetCard';
 import AddBudgetModal from './components/AddBudgetModal'
+ 
 import './App.css';
 
 
@@ -14,13 +15,15 @@ function App() {
       <>
       <div className="">
       <h1>Budgets</h1>
-      <button className='btn-primary' onClick={()=> setShowAddBudgetModal(true)}><span> Add Budget</span></button>
-      <button className='btn-primary outlinePrimary'><span> Add Expense</span></button>
+      <div className="card-footer">
+      <button className='nes-btn is-primary nes-pointer' onClick={()=> setShowAddBudgetModal(true)}><span> Add Budget</span></button>
+      <button className='nes-btn is-success nes-pointer'><span> Add Expense</span></button>
+      </div>
       <h3>On contruction</h3>
       </div>
-
-      <BudgetCard name="Entertainment" amount={199} max={1000} ></BudgetCard>
-      <AddBudgetModal/>
+ 
+      <BudgetCard name="Entertainment" amount={699} max={1000} ></BudgetCard>
+      <AddBudgetModal handleClose={()=> setShowAddBudgetModal(false)}/>
       </>
     </div>
   );

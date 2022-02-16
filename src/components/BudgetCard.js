@@ -19,7 +19,7 @@ export default function BudgetCard({name, amount, max, gray}) {
                     <div className="titulo-max">{currencyFormatter.format(max)}</div>
                 </div>
             </div>
-            <div className="bar">
+            {/* <div className="bar">
                 <div className=  {`card-progresBar ${cardAlert}`}
                     id='progresBar'
                     style={progresBar}
@@ -29,10 +29,11 @@ export default function BudgetCard({name, amount, max, gray}) {
                     now={amount} 
                     >
                 </div>
-            </div>
+            </div> */}
+            <progress class="nes-progress is-primary" value={amount} max={max}></progress>
             <div className="card-footer">
-                <button className='btn-primary'><span>Add Expense</span></button>
-                <button className='btn-primary outlinePrimary'><span>View Expenses</span></button>
+                <button className='nes-btn is-primary nes-pointer'><span>Add Expense</span></button>
+                <button className='nes-btn is-success nes-pointer'><span>View Expenses</span></button>
             </div>
         </div>
     )
