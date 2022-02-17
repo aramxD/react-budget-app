@@ -48,3 +48,30 @@ input[type=submit]:active {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
     transform: translateY(6px);
 }
+
+.modal {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background: rgb(155, 155, 155);
+    z-index: 2;
+    padding: 30px;
+}
+
+.modal-main {
+    position: fixed;
+    background: white;
+    width: 80%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
+}

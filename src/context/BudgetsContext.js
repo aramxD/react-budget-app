@@ -25,7 +25,7 @@ export const BudgetsProvider = ({ children }) => {
     }
 
     function addBudget({ name, max }) {
-        alert('inicia funcion');
+        
         setBudgets(prevBudgets => {
             if (prevBudgets.find(budget => budget.name === name)) {
             return prevBudgets

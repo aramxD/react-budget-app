@@ -4,26 +4,24 @@ import {useBudgets} from "../context/BudgetsContext"
 
 
 
-export default function AddBudgetModal({handleClose}) {
+export default function AddBudgetModal({handleClose, show}) {
+    const setShowAddBudgetModal = show ? "modal display-block" : "modal display-none";
     const nameRef = useRef()
     const maxRef = useRef()
     const { addBudget } = useBudgets()
     function handleSubmit(e){
         e.preventDefault()
-         
-        console.log(nameRef.current.value)
-        console.log(maxRef.current.value)
         addBudget({
                 name: nameRef.current.value,
                 max: parseFloat(maxRef.current.value)
             })
-        alert('termina bien ');
+        
         handleClose()
 
 }
 
 return (
-    <div className="budget-modal">
+    <div className="" className={setShowAddBudgetModal}>
             <div className="budget-modal-header">
                 <div className="budget-modal-title">
                     <h2>Add a Budget</h2>
