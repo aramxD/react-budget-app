@@ -8,8 +8,17 @@ import { useBudgets } from './context/BudgetsContext';
 
 
 function App() {
-  const [show, showAddBudgetModal, setShowAddBudgetModal] = useState(false)
+  const [showAddBudgetModal, setShowAddBudgetModal] = useState(false)
   const {budgets} = useBudgets()
+
+ 
+  const openModal1 = ()=> {
+    console.log("se llama la funcion")
+    const show = true
+    setShowAddBudgetModal(true)
+    console.log(show)
+    console.log("termina la funcion")
+  }
 
   return (
     <div className="App">
@@ -17,7 +26,7 @@ function App() {
       <div className="">
       <h1>Budgets</h1>
       <div className="card-footer">
-      <button className='nes-btn is-primary nes-pointer' onClick={()=> setShowAddBudgetModal(show=true)}><span> Add Budget</span></button>
+      <button className='nes-btn is-primary nes-pointer' onClick={openModal1}><span> Add Budget</span></button>
       <button className='nes-btn is-success nes-pointer'><span> Add Expense</span></button>
       </div>
       <h3>On contruction</h3>
@@ -32,7 +41,7 @@ function App() {
 
       ))}
       
-      <AddBudgetModal handleClose={()=> setShowAddBudgetModal(false)}/>
+      <AddBudgetModal  setShowAddBudgetModal={showAddBudgetModal} handleClose={()=> setShowAddBudgetModal(false)}/>
       </>
     </div>
   );

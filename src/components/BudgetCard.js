@@ -30,7 +30,7 @@ export default function BudgetCard({name, amount, max, gray}) {
                     >
                 </div>
             </div> */}
-            <progress class="nes-progress is-primary" value={amount} max={max}></progress>
+            <progress className="nes-progress is-primary" value={amount} max={max}></progress>
             <div className="card-footer">
                 <button className='nes-btn is-primary nes-pointer'><span>Add Expense</span></button>
                 <button className='nes-btn is-success nes-pointer'><span>View Expenses</span></button>

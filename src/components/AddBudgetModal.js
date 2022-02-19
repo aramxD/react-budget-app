@@ -6,6 +6,7 @@ import {useBudgets} from "../context/BudgetsContext"
 
 export default function AddBudgetModal({handleClose, show}) {
     const setShowAddBudgetModal = show ? "modal display-block" : "modal display-none";
+    console.log(show)
     const nameRef = useRef()
     const maxRef = useRef()
     const { addBudget } = useBudgets()
@@ -21,13 +22,13 @@ export default function AddBudgetModal({handleClose, show}) {
 }
 
 return (
-    <div className="" className={setShowAddBudgetModal}>
+    <div  className={setShowAddBudgetModal}>
             <div className="budget-modal-header">
                 <div className="budget-modal-title">
                     <h2>Add a Budget</h2>
                 </div>
                 <div className="budget-modal-close-icon">
-                <i class="nes-icon close is-medium"></i>
+                <i className="nes-icon close is-medium"></i>
                 </div>
             </div>
             <div className="budget-modal-body">
