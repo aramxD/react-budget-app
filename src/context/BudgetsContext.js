@@ -4,59 +4,70 @@ import useLocalStorage from '../hooks/useLocalStorage'
 
 const BudgetsContext = React.createContext()
 
+export const UNCATEGORIZED_BUDGET_ID = "Uncategorized"
+
 export function useBudgets() {
     return useContext(BudgetsContext)
 }
 
 export const BudgetsProvider = ({ children }) => {
-    const [budgets, setBudgets] = useLocalStorage('budgets', [])
-    const [expenses, setExpenses] = useLocalStorage('expenses', [])
+        const [budgets, setBudgets] = useLocalStorage('budgets', [])
+        const [expenses, setExpenses] = useLocalStorage('expenses', [])
 
 
-    function getBudgetExpenses(budgetId) {
-        return expenses.filter(expenses => expenseId === budgetId)
-    }
+        function getBudgetExpenses(budgetId) {
+            return expenses.filter(expense => expense.budgetId === budgetId)
+        }
 
-    function addExpenses({ description, amount, budgetId }) {
 
-        setExpenses(prevExpenses => {
-            return [...prevExpenses, { id: uuidV4(), description, amount, budgetId }]
-        })
-    }
+        function addExpense({ description, amount, budgetId }) {
 
-    function addBudget({ name, max }) {
-        
-        setBudgets(prevBudgets => {
-            if (prevBudgets.find(budget => budget.name === name)) {
-            return prevBudgets
-            }
-            return [...prevBudgets, { id: uuidV4(), name, max }]
-        })
-    }
-    
+            setExpenses(prevExpenses => {
+                return [...prevExpenses, { id: uuidV4(), description, amount, budgetId }]
+            })
+        }
 
-    function deleteBudget({ id }) {
-        // TODO: Agregar la redireccion de gastos a "sin categoria"
-        setBudgets(prevBudgets => {
-            return prevBudgets.filter(budget => budget.id !== id)
-        })
-    }
 
-    function deleteExpense({ id }) {
-        setExpenses(prevExpenses => {
-            return prevExpenses.filter(expense => expense.id !== id)
-        })
-    }
+        function addBudget({ name, max }) {
 
-    return ( <BudgetsContext.Provider value = {{
+            setBudgets(prevBudgets => {
+                if (prevBudgets.find(budget => budget.name === name)) {
+                    return prevBudgets
+                }
+                return [...prevBudgets, { id: uuidV4(), name, max }]
+            })
+        }
 
-        budgets,
-        expenses,
-        getBudgetExpenses,
-        addExpenses,
-        addBudget,
-        deleteBudget,
-        deleteExpense
 
-    }} > { children } </BudgetsContext.Provider> )
-}
+        function deleteBudget({ id }) {
+            setExpenses(prevExpenses => {
+                return prevExpenses.map(expense => {
+                    if (expense.budgetId !== id) return expense
+                    return { ...expense, budgetId: UNCATEGORIZED_BUDGET_ID }
+                })
+            })
+            setBudgets(prevBudgets => {
+                return prevBudgets.filter(budget => budget.id !== id)
+            })
+        }
+
+        function deleteExpense({ id }) {
+            setExpenses(prevExpenses => {
+                return prevExpenses.filter(expense => expense.id !== id)
+            })
+        }
+
+        return ( <BudgetsContext.Provider value = {
+                {
+
+                    budgets,
+                    expenses,
+                    getBudgetExpenses,
+                    addExpense,
+                    addBudget,
+                    deleteBudget,
+                    deleteExpense
+
+                }
+            } > { children } </BudgetsContext.Provider> )
+        }

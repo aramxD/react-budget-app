@@ -9,7 +9,7 @@
 
 .budget-modal-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-content: center;
     align-items: center;
 }
@@ -17,6 +17,11 @@
 .budget-modal .budget-modal-body {
     display: flex;
     flex-direction: column;
+}
+
+.budget-modal-close-icon {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .form-data {
@@ -53,9 +58,10 @@ input[type=submit]:active {
     position: fixed;
     top: 0;
     height: 100%;
+    width: 100vw;
     background: rgb(155, 155, 155);
     z-index: 2;
-    padding: 30px;
+    padding: 1rem;
 }
 
 .modal-main {
@@ -74,4 +80,27 @@ input[type=submit]:active {
 
 .display-none {
     display: none;
+}
+
+.expenses-list {
+    font-size: 14px;
+}
+
+.nes-container {
+    padding: .75rem;
+}
+
+ul {
+    padding-inline-start: 20px;
+}
+
+li {
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.view-expenses-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

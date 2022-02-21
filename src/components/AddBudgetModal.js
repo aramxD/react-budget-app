@@ -18,8 +18,7 @@ export default function AddBudgetModal({handleClose, show}) {
             })
         
         handleClose()
-
-}
+    }
 
 return (
     <div  className={setShowAddBudgetModal}>
@@ -28,19 +27,22 @@ return (
                     <h2>Add a Budget</h2>
                 </div>
                 <div className="budget-modal-close-icon">
-                <i className="nes-icon close is-medium"></i>
+                <i className="nes-icon close is-medium" onClick={()=>handleClose()}></i> 
                 </div>
             </div>
             <div className="budget-modal-body">
                 <form onSubmit={handleSubmit}>
+
                     <div className="form-data nes-field">
                     <label htmlFor="budget_name"  >Budget Name</label>
-                    <input className='nes-pointer' type="text" name="budget_name" id='budget_name' ref={nameRef} required/>
+                    <input className='nes-pointer nes-input' type="text" name="budget_name" id='budget_name' ref={nameRef} required/>
                     </div>
+                    
                     <div className="form-data nes-field">
                     <label htmlFor="budget_amount">Budget Amount</label>
-                    <input className='nes-pointer' type="number" name="budget_amount" id='budget_amount' defaultValue={0} step={.01} ref={maxRef} required/>
+                    <input className='nes-pointer nes-input' type="number" name="budget_amount" id='budget_amount' defaultValue={0} step={.01} ref={maxRef} required/>
                     </div>
+
                     <input type="submit" className='nes-btn is-primary nes-pointer' value="Submit" />
                 </form>
             </div>
