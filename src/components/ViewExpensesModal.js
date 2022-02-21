@@ -6,7 +6,7 @@ import { currencyFormatter } from '../utils';
 
 
 export default function ViewExpensesModal({handleClose, budgetId, show, setShowAddBudgetModal}) {
-    const onViewExpenseClick = show ? "modal display-block" : "modal display-none";
+    const onViewExpenseClick = show ? "modal-list display-block" : "modal-list display-none";
     
     const { getBudgetExpenses, budgets, deleteBudget, deleteExpense } = useBudgets()
 
@@ -19,12 +19,12 @@ export default function ViewExpensesModal({handleClose, budgetId, show, setShowA
 
 return (
     <div  className={onViewExpenseClick}>
-        <div className="nes-container with-title ">
+        <div className="">
             <div className="budget-modal-close-icon">
                 <i className="nes-icon close is-small" onClick={()=>handleClose()}></i> 
                 </div>
             <div className="budget-modal-header ">
-                <div className="budget-modal-title truncate">
+                <div className="budget-modal-title ">
                     
                     <h2>{budget?.name}</h2>
 

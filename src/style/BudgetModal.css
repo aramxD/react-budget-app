@@ -58,10 +58,25 @@ input[type=submit]:active {
     position: fixed;
     top: 0;
     height: 100%;
-    width: 100vw;
     background: rgb(155, 155, 155);
     z-index: 2;
     padding: 1rem;
+}
+
+.modal-list {
+    position: fixed;
+    width: 500px;
+    top: 0;
+    height: 100%;
+    background: rgb(155, 155, 155);
+    z-index: 2;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 450px) {
+    .modal-list {
+        width: 400px;
+    }
 }
 
 .modal-main {
